@@ -1,0 +1,3 @@
+pod 'Objection', '~> 1.6.1'
+pod 'Mantle', '~> 2.0.5'
+pod 'ReactiveCocoa', '~> 2.5'
