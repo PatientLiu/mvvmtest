@@ -35,11 +35,11 @@
         NSLog(@"%@",str);
     }];
     [[self network] RequestType:@"GET" Url:self.url Callback:^(NSData *data, NSError *error) {
+        if (error) {self.error = error; self.states = ViewModelDataStateError; return;}
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         NSArray * arraydata = [MTLJSONAdapter modelsOfClass:[self dataClass] fromJSONArray:(NSArray *)dict[@"images"] error:nil];
         self.datas = arraydata;
-        self.error = error;
-        (arraydata != nil) ? (self.states = ViewModelDataStateDone) : (self.states = ViewModelDataStateError);
+        self.states = ViewModelDataStateDone;
     }];
 }
 
