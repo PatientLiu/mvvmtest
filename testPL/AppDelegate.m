@@ -9,9 +9,8 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
-
 @end
-
+NSString* BiYingapi = @"http://cn.bing.com";
 @implementation AppDelegate
 
 

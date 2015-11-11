@@ -7,13 +7,14 @@
 //
 
 #import "NetWork.h"
+#import "AppDelegate.h"
 @interface NetWork ()<NSURLSessionDelegate>
 
 @end
 @implementation NetWork
 -(void)RequestType:(NSString *)type Url:(NSString *)url Callback:(void (^) (id ,NSError *))callback
 {
-    NSString *rootUrl = @"http://cn.bing.com/";
+    NSString *rootUrl = BiYingapi;
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     request.HTTPMethod = type;
     request.URL = [NSURL URLWithString:[rootUrl stringByAppendingPathComponent:url]];
