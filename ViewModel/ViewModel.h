@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NetWorkInterFace.h"
-
+#import "DemonStration.h"
 typedef NS_ENUM(NSUInteger, ViewModelDataState) {
     //    ViewModelDataStateUnknow,
     ViewModelDataStateDone,
@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, ViewModelDataState) {
 };
 
 @interface ViewModel : NSObject
-
+@property (readonly) id<DemonStration> demostration;
 @property (readonly) id<NetWorkInterFace> network;
 @property (nonatomic,strong) NSString * url;
 @property (nonatomic,strong) NSArray *datas;

@@ -8,7 +8,17 @@
 
 #import "Tool.h"
 #import "NetWorkInterFace.h"
-#import "NetWork.h"
+#import "DemonStration.h"
+NSDictionary *theModules() {
+    static NSDictionary *modelInteface = nil;
+    static dispatch_once_t oncetoken;
+    dispatch_once(&oncetoken, ^{
+        modelInteface = @{NetWorkinterface:@protocol(NetWorkInterFace),
+                          demonstration:@protocol(DemonStration)};
+    });
+    return modelInteface;
+}
+
 @implementation Tool
 +(void)load
 {
@@ -19,6 +29,20 @@
 }
 -(void)configure
 {
-    [self bindClass:[NetWork class] toProtocol:@protocol(NetWorkInterFace)];
+    for (NSString *name in theModules().allKeys) {
+        Class class = NSClassFromString(name);
+        [self bindClass:class toProtocol:theModules()[name]];
+    }
 }
+
 @end
+
+
+
+
+
+
+
+
+
+

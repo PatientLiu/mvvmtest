@@ -11,14 +11,13 @@
 #import "data.h"
 
 @implementation ViewModel
-
-
-
-
-
 -(id<NetWorkInterFace>)network
 {
     return (id<NetWorkInterFace>)[[JSObjection defaultInjector] getObject:@protocol(NetWorkInterFace)];
+}
+-(id<DemonStration>)demostration
+{
+    return (id<DemonStration>)[[JSObjection defaultInjector] getObject:@protocol(DemonStration)];
 }
 @end
 @implementation networktest
@@ -27,13 +26,14 @@
 {
     self = [super init];
     if (self) {
-//        self.datas = @[];
     }
     return self;
 }
 -(void)loadData
 {
-    [self network];
+    [[self demostration] demo:@"test" Callback:^(NSString *str) {
+        NSLog(@"%@",str);
+    }];
     [[self network] RequestType:@"GET" Url:self.url Callback:^(NSData *data, NSError *error) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         NSArray * arraydata = [MTLJSONAdapter modelsOfClass:[self dataClass] fromJSONArray:(NSArray *)dict[@"images"] error:nil];

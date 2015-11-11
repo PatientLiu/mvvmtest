@@ -10,6 +10,7 @@
 #import "ViewModel.h"
 #import "Jsondata.h"
 #import "ReactiveCocoa.h"
+
 @interface network : networktest
 
 @end
@@ -66,7 +67,8 @@
     __block UIImage *imagebg = nil;
     dispatch_group_async(group, queue, ^{
         NSLog(@"action One");
-        imagebg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[@"http://cn.bing.com" stringByAppendingString:self.model.url]]]];
+        NSString *url = [self.model.url stringByReplacingOccurrencesOfString:@"http://cn.bing.com" withString:@""];
+        imagebg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[@"http://cn.bing.com" stringByAppendingString:url]]]];
     });
     dispatch_group_async(group, queue, ^{
         NSLog(@"action Two");

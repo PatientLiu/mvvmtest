@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol NetWorkInterFace <NSObject>
-
+#define NetWorkinterface @"NetWork"
 -(void)RequestType:(NSString *)type Url:(NSString *)url Callback:(void (^) (id ,NSError *))callback;
 
 @end

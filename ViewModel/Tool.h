@@ -10,7 +10,4 @@
 #import "Objection.h"
 @interface Tool : JSObjectionModule
 
-
-
-
 @end
