@@ -27,7 +27,6 @@
 {
     return [Jsondata class];
 }
-//HPImageArchive.aspx?format=js&idx=0&n=1
 
 @end
 
@@ -43,7 +42,6 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-//    http://cn.bing.com/
     [super viewDidLoad];
     _ViewModel = [network new];
     [self.ViewModel loadData];

@@ -10,7 +10,6 @@
 #import "NetWorkInterFace.h"
 #import "DemonStration.h"
 typedef NS_ENUM(NSUInteger, ViewModelDataState) {
-    //    ViewModelDataStateUnknow,
     ViewModelDataStateDone,
     ViewModelDataStateError
 };
