@@ -45,8 +45,11 @@
     [super viewDidLoad];
     _ViewModel = [network new];
     [self.ViewModel loadData];
+    
+    
+    
+    
     @weakify(self)
-
     [RACObserve(_ViewModel,states) subscribeNext:^(id x) {
         @strongify(self)
         if (self.ViewModel.states == ViewModelDataStateDone) {
