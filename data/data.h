@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Mantle.h"
 
+
+
 @interface data : MTLModel<MTLJSONSerializing>
 
 +(instancetype)dataClass:(Class)class withJson:(NSDictionary *)json;

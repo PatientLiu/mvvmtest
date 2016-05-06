@@ -30,6 +30,7 @@ NSDictionary *theModules() {
 -(void)configure
 {
     for (NSString *name in theModules().allKeys) {
+        NSLog(@"%@",name);
         Class class = NSClassFromString(name);
         [self bindClass:class toProtocol:theModules()[name]];
     }
